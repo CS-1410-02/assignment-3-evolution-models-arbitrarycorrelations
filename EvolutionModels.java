@@ -4,20 +4,30 @@ import java.util.Random;
 
 interface Operations{
     public void spawn();
-    public void delete();
+    public void delete(Entity to_kill);
 }
 
 class World implements Operations{
     private ArrayList<Entity> world_entities = new ArrayList<Entity>(); //variable-size python-esque list
     private ArrayList<Entity> entites;
+    
     public void spawn(){
         this.entites.add(new Entity());
     }
-    public void delete(){ 
-        this.entites.remove(0);
+    public void delete(Entity to_kill){ 
+        int kill_index = this.entites.indexOf(to_kill);
+        this.entites.remove(kill_index);
     }
 
     World(){this.entites = world_entities;}
+
+    public ArrayList<Entity> getWorldEntites(){return this.entites;}
+
+    public String viewEntites(){
+        int num;
+        num = this.entites.size();
+        return String.format("%s", num);
+    }
 
 }
 
@@ -51,6 +61,7 @@ class Entity{
 
 public class EvolutionModels{
     public static void main(String[] args){
+        
         
     }
 }
