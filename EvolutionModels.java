@@ -1,26 +1,27 @@
+import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 
 interface Operations{
-    public boolean spawn(int chance);
-    public boolean delete();
+    public void spawn();
+    public void delete();
 }
 
-public class World implements Operations{
-    private ArrayList<Entity> world_entities = new ArrayList<Entity>();
-    public boolean spawn(int chance){
-        
+class World implements Operations{
+    private ArrayList<Entity> world_entities = new ArrayList<Entity>(); //variable-size python-esque list
+    private ArrayList<Entity> entites;
+    public void spawn(){
+        this.entites.add(new Entity());
     }
-    public boolean delete(int chance){ 
-
+    public void delete(){ 
+        this.entites.remove(0);
     }
 
-    World(){
+    World(){this.entites = world_entities;}
 
-    }
 }
 
-public class Entity{
+class Entity{
     Random random = new Random();
     private int reproduction_odds;
     private int death_odds;
@@ -50,6 +51,6 @@ public class Entity{
 
 public class EvolutionModels{
     public static void main(String[] args){
-
+        
     }
 }
