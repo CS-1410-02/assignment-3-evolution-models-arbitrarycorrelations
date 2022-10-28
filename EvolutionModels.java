@@ -1,4 +1,3 @@
-import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -15,8 +14,8 @@ class World implements Operations{
         this.entites.add(new Entity());
     }
     public void delete(Entity to_kill){ 
-        int kill_index = this.entites.indexOf(to_kill);
-        this.entites.remove(kill_index);
+        int kill_index = this.entites.indexOf(to_kill); //find index of passed Entity
+        this.entites.remove(kill_index); //remove Entity at index from list
     }
 
     World(){this.entites = world_entities;}
@@ -26,7 +25,7 @@ class World implements Operations{
     public String viewEntites(){
         int num;
         num = this.entites.size();
-        return String.format("%s", num);
+        return String.format("%s Entites in world", num); //Allows num to be converted to string
     }
 
 }
@@ -61,7 +60,10 @@ class Entity{
 
 public class EvolutionModels{
     public static void main(String[] args){
-        
+        //boolean running = true;
+        //while (running) {
+
+        //}
         
     }
 }
